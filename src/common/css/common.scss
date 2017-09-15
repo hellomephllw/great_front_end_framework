@@ -1,0 +1,6 @@
+@import 'variables';
+
+body {
+    font: #{$fontSizeDefault}/#{$lineHeightRatio} $fontFamily;
+    font-weight: bold;
+}
