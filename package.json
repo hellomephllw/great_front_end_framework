@@ -13,7 +13,6 @@
 		"build-dev": "webpack --config src/lib/webpack/dll-config.js"
 	},
 	"dependencies": {
-		"babel-preset-react-native": "2.1.0",
 		"add-asset-html-webpack-plugin": "^2.1.1",
 		"babel-loader": "^7.1.2",
 		"babel-preset-react-native-stage-0": "^1.0.1",
@@ -41,7 +40,7 @@
 	},
 	"devDependencies": {
 		"babel-jest": "21.0.2",
-		"babel-preset-react-native": "4.0.0",
+		"babel-preset-react-native": "3.0.2",
 		"jest": "21.1.0",
 		"react-test-renderer": "16.0.0-alpha.12"
 	},
