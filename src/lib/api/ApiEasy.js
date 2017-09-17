@@ -1,4 +1,4 @@
-import urlConst from '../../api/config';
+import urlConst from '../../data/api/config';
 
 class ApiEasy {
 

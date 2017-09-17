@@ -4,6 +4,10 @@
 	"private": true,
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"dev-w": "babel-node src/lib/dev-tool",
+		"dev-i": "",
+		"dev-a": "",
+
 		"test": "jest",
 		"dev": "babel-node src/lib/dev-server",
 		"testt": "webpack --config src/lib/webpack/test-config.js",
