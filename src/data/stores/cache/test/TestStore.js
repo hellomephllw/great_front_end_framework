@@ -1,5 +1,5 @@
 import { observable, action } from 'mobx';
-// import api from '../../api';
+import api from '../../../../data/api';
 
 class TestStore {
 
@@ -11,9 +11,18 @@ class TestStore {
     }
 
     @action async getInfo() {
-        // const json = await api.getProfile();
-        // console.log(json);
-        // return true;
+        const json = await api.getProfile();
+        console.log(json);
+        return true;
+    }
+
+    @action async getJsonSync() {
+        const json = await api.getProfile();
+
+        console.log('====');
+        console.log(json);
+
+        this.networkJson = json;
     }
 
 }

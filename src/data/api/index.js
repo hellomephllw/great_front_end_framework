@@ -1,11 +1,10 @@
-import urlConst from './config';
+import apiEasilyAccess from '../../lib/dev-tool/api/ApiEasilyAccess';
 
-const api = {
-    getProfile() {
-        return fetch(urlConst._GET_PROFILE, {method: 'POST'})
-            .then(response => response.json())
-            .catch(error => console.warn(error));
-    }
+export default {
+	getProfile(formData, opts, callback) {
+		return apiEasilyAccess.getJson('http://localhost:3002/getProfile', opts, callback);
+	},
+	getWallet(formData, opts, callback) {
+		return apiEasilyAccess.getJson('http://localhost:3002/getWallet', opts, callback);
+	}
 };
-
-export default api;

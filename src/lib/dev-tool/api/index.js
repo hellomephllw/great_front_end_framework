@@ -13,12 +13,10 @@ module.exports = {
         let keyValuePairs = this._getAllKeyValuePairs();
 
         //根据键值对输出index文件
-
+        this._outputIndexByKeyValuePairs(keyValuePairs);
 
         //开启监听
-
-
-        console.log(keyValuePairs);
+        this._startApiConfigFileListener();
     },
     _getAllKeyValuePairs() {
         let content = ApiConfigParser.getContent(pathConst._API_CONFIG_PATH);
@@ -27,7 +25,12 @@ module.exports = {
 
         return ApiConfigParser.getAllKeyValuePairs(allKeyValuePairsStrArr);
     },
-    _outputIndexByKeyValuePairs() {
+    _outputIndexByKeyValuePairs(keyValuePairs) {
+        const content = ApiEasilyAccessGenerator.getContent(keyValuePairs);
+
+        ApiEasilyAccessGenerator.outputContentToIndexFile(pathConst._API_INDEX_PATH, content);
+    },
+    _startApiConfigFileListener() {
 
     }
 };
