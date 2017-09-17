@@ -28,6 +28,9 @@ export default indexAdaptee = {
     },
     /**构建android style*/
     _buildAndroidStyle() {
-        return {};
+        return {
+            forceTitlesDisplay: true,
+            navBarTitleTextCentered: true
+        };
     }
 };

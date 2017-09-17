@@ -20,12 +20,12 @@ export default tabScreens = [
         // labelFontSize: '',
         tabIcon: categoryIcon
     },
-    {
-        screenKey: screenConst._TEST3_SCREEN,
-        screenTitle: 'Test3',
-        tabLabel: 'test3',
-        // labelColor: '',
-        // labelFontSize: '',
-        tabIcon: homeIcon
-    }
+    // {
+    //     screenKey: screenConst._TEST3_SCREEN,
+    //     screenTitle: 'Test3',
+    //     tabLabel: 'test3',
+    //     // labelColor: '',
+    //     // labelFontSize: '',
+    //     tabIcon: homeIcon
+    // }
 ];
