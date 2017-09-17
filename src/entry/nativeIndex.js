@@ -1,5 +1,20 @@
-import indexAdaptor from '../lib/navigation/indexAdaptor';
-import stores from '../data/stores';
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ * @flow
+ */
+import React, { Component } from 'react';
+import { AppRegistry, View } from 'react-native';
+import App from './nativeApp';
 
-/**启动native app*/
-indexAdaptor.startApp(stores);
+class greatFrontEndFrameWork extends Component {
+    render() {
+        return (
+            <View>
+                <App/>
+            </View>
+        );
+    }
+}
+
+AppRegistry.registerComponent('greatFrontEndFrameWork', () => greatFrontEndFrameWork);
