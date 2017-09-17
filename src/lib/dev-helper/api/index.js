@@ -31,6 +31,13 @@ module.exports = {
         ApiEasilyAccessGenerator.outputContentToIndexFile(pathConst._API_INDEX_PATH, content);
     },
     _startApiConfigFileListener() {
+        ApiEasilyAccessGenerator.registerApiConfigFileListener(pathConst._API_CONFIG_PATH, this._executeAfterChangeApiConfig.bind(this));
+    },
+    _executeAfterChangeApiConfig() {
+        //获取api配置键值对
+        let keyValuePairs = this._getAllKeyValuePairs();
 
+        //根据键值对输出index文件
+        this._outputIndexByKeyValuePairs(keyValuePairs);
     }
 };

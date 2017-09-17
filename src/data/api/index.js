@@ -1,4 +1,4 @@
-import apiEasilyAccess from '../../lib/dev-tool/api/ApiEasilyAccess';
+import apiEasilyAccess from '../../lib/dev-helper/api/ApiEasilyAccess';
 
 export default {
 	getProfile(formData, opts, callback) {
