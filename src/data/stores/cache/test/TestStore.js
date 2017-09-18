@@ -10,19 +10,16 @@ class TestStore {
         ++this.age;
     }
 
-    @action async getInfo() {
+    @action async getJsonSync() {
+        console.log(api);
         const json = await api.getProfile();
         console.log(json);
-        return true;
     }
 
-    @action async getJsonSync() {
-        const json = await api.getProfile();
-
-        console.log('====');
-        console.log(json);
-
-        this.networkJson = json;
+    @action async getJsonAsync() {
+        api.getProfile({}, function() {
+            console.log('after fetch============');
+        });
     }
 
 }

@@ -1,9 +1,14 @@
 /**
  * 一定要下划线开头，纯大写作为常量
  */
+let domain = 'http://10.0.0.234:3002';
+if (process.env.NODE_ENV === 'production') {
+    domain = '';
+}
+
 export default {
     //ddddxxxhh//
-    _GET_PROFILE: 'http://localhost:3002/getProfile',
+    _GET_PROFILE: `${domain}/getProfile`,
     //111
-    _GET_WALLET: 'http://localhost:3002/getWallet'
+    _GET_WALLET: `${domain}/getWallet`
 };

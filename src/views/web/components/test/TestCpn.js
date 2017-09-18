@@ -9,7 +9,8 @@ export default class TestCpn extends BaseCpn {
     constructor(props) {
         super(props);
         this._onClickDoSomething = this._onClickDoSomething.bind(this);
-        this._onClickGetInfo = this._onClickGetInfo.bind(this);
+        this._onClickGetJsonSync = this._onClickGetJsonSync.bind(this);
+        this._onClickGetJsonAsync = this._onClickGetJsonAsync.bind(this);
         this._onClickGoTest2 = this._onClickGoTest2.bind(this);
     }
 
@@ -18,12 +19,12 @@ export default class TestCpn extends BaseCpn {
         this.props.TestStore.doSomething();
     }
 
-    _onClickGetInfo() {
-        this.props.TestStore.getInfo()
-            .then((data) => {
-                console.log(data);
-                console.log('end');
-            });
+    _onClickGetJsonSync() {
+        this.props.TestStore.getJsonSync();
+    }
+
+    _onClickGetJsonAsync() {
+        this.props.TestStore.getJsonAsync();
     }
 
     _onClickGoTest2() {
@@ -38,7 +39,8 @@ export default class TestCpn extends BaseCpn {
                 <p>name:{ name }</p>
                 <p>age:{ age }</p>
                 <button onClick={this._onClickDoSomething}>do something</button>
-                <button onClick={this._onClickGetInfo}>get info</button>
+                <button onClick={this._onClickGetJsonSync}>get json sync</button>
+                <button onClick={this._onClickGetJsonAsync}>get json async</button>
                 <button onClick={this._onClickGoTest2}>go Test2</button>
             </div>
         );

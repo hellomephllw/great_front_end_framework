@@ -18,7 +18,7 @@ export default class TestScreen extends BaseCpn {
     constructor(props) {
         super(props);
         this._onPressClickBtn = this._onPressClickBtn.bind(this);
-        this._onPressGetJson = this._onPressGetJson.bind(this);
+        this._onPressGetJsonSync = this._onPressGetJsonSync.bind(this);
         this._onPressGetJsonSync = this._onPressGetJsonSync.bind(this);
         this._onPressGoScreen4Btn = this._onPressGoScreen4Btn.bind(this);
     }
@@ -28,23 +28,17 @@ export default class TestScreen extends BaseCpn {
         TestStore.doSomething();
     }
 
-    _onPressGetJson() {
-        const { TestStore } = this.props;
-        TestStore.getJson(json => {
-            console.log(json);
-        });
-    }
-
     _onPressGetJsonSync() {
         const { TestStore } = this.props;
-        console.log('begin');
         TestStore.getJsonSync();
-        console.log('end');
+    }
+
+    _onPressGetJsonAsync() {
+        const { TestStore } = this.props;
+        TestStore.getJsonAsync();
     }
 
     _onPressGoScreen4Btn() {
-        // console.log(this.getScreenKeys());
-        // console.log(this.navScreenKeys._TEST4_SCREEN);
         this.navPush(this.navScreenKeys._TEST4_SCREEN);
     }
 
@@ -59,11 +53,11 @@ export default class TestScreen extends BaseCpn {
                 <TouchableOpacity onPress={this._onPressClickBtn}>
                     <Text>click</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={this._onPressGetJson}>
-                    <Text>get json</Text>
-                </TouchableOpacity>
                 <TouchableOpacity onPress={this._onPressGetJsonSync}>
                     <Text>get json sync</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={this._onPressGetJsonAsync}>
+                    <Text>get json async</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={this._onPressGoScreen4Btn}>
                     <Text>go screen44</Text>

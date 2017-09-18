@@ -110,7 +110,7 @@ const config = {
         new ExtractTextPlugin('[name].[contenthash:5].css'),
         //清空输出目录
         new CleanWebpackPlugin(['assets'], {
-            root: `${rootPath}/public`,
+            root: `${rootPath}`,
             verbose: true,
             dry: false,
             exclude: ['vendor.dll.js', 'vendor.dll.js.map', 'vendor-manifest.json']

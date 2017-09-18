@@ -6,8 +6,9 @@
 		"start": "node node_modules/react-native/local-cli/cli.js start",
 		"helper": "babel-node src/lib/dev-helper",
 		"dev-w": "babel-node src/lib/dev-server",
-		"dev-i": "",
-		"dev-a": "",
+		"dev-i": "react-native run-ios",
+		"dev-a": "react-native run-android",
+
 		"test": "jest",
 		"dev": "babel-node src/lib/dev-server",
 		"testt": "webpack --config src/lib/webpack/test-config.js",

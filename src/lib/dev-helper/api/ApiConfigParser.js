@@ -87,6 +87,22 @@ const ApiConfigParser = {
     },
     _getKeyForKeyValuePairs(str, index) {
         return str.trim().slice(0, index);
+    },
+    /**
+     * 获取域名
+     * @param content api配置内容
+     * @return 域名
+     */
+    getDomain(content) {
+        let domainIndex = content.search(/let domain/);
+        let domainStrLine = content.slice(domainIndex).split('\n')[0];
+        let domainUrlStr = domainStrLine.split('=')[1].trim();
+        let domain = domainUrlStr.slice(1, domainUrlStr.length - 2);
+
+        return domain;
+    },
+    replaceDomain(allKeyValuePairs, domain) {
+        return allKeyValuePairs.map(pair => ({key: pair.key, val: pair.val.replace(/\${domain}/, domain)}));
     }
 };
 

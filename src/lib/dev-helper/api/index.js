@@ -3,7 +3,7 @@ import ApiEasilyAccessGenerator from './ApiEasilyAccessGenerator';
 
 const pathConst = {
     _API_CONFIG_PATH: `${rootPath}/src/data/api/config.js`,
-    _API_INDEX_PATH: `${rootPath}/src/data/api/index.js`
+    _API_INDEX_PATH: `${rootPath}/src/data/api/accessEasily.js`
 };
 
 /**开启api自动化工具*/
@@ -19,11 +19,17 @@ module.exports = {
         this._startApiConfigFileListener();
     },
     _getAllKeyValuePairs() {
+        //获取键值对步骤
         let content = ApiConfigParser.getContent(pathConst._API_CONFIG_PATH);
         let validContent = ApiConfigParser.getValidContent(content);
         let allKeyValuePairsStrArr = ApiConfigParser.getAllKeyValuePairsStrArr(validContent);
+        let allKeyValuePairs = ApiConfigParser.getAllKeyValuePairs(allKeyValuePairsStrArr);
 
-        return ApiConfigParser.getAllKeyValuePairs(allKeyValuePairsStrArr);
+        //替换域名步骤
+        let domain = ApiConfigParser.getDomain(content);
+        allKeyValuePairs = ApiConfigParser.replaceDomain(allKeyValuePairs, domain);
+
+        return allKeyValuePairs;
     },
     _outputIndexByKeyValuePairs(keyValuePairs) {
         const content = ApiEasilyAccessGenerator.getContent(keyValuePairs);

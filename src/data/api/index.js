@@ -1,10 +1,15 @@
-import apiEasilyAccess from '../../lib/dev-helper/api/ApiEasilyAccess';
+import access from './access';
+import accessEasily from './accessEasily';
+import config from './config';
 
+/**
+ * api接口：
+ *  - 提供快捷请求接口
+ *  - 自定义请求接口
+ *  - 接口url常量
+ */
 export default {
-	getProfile(formData, opts, callback) {
-		return apiEasilyAccess.getJson('http://localhost:3002/getProfile', opts, callback);
-	},
-	getWallet(formData, opts, callback) {
-		return apiEasilyAccess.getJson('http://localhost:3002/getWallet', opts, callback);
-	}
+    ...accessEasily,
+    ...access,
+    constants: config
 };
