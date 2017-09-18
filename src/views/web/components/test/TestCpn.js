@@ -11,6 +11,8 @@ export default class TestCpn extends BaseCpn {
         this._onClickDoSomething = this._onClickDoSomething.bind(this);
         this._onClickGetJsonSync = this._onClickGetJsonSync.bind(this);
         this._onClickGetJsonAsync = this._onClickGetJsonAsync.bind(this);
+        this._onClickGetJsonSyncCustomized = this._onClickGetJsonSyncCustomized.bind(this);
+        this._onClickGetJsonAsyncCustomized = this._onClickGetJsonAsyncCustomized.bind(this);
         this._onClickGoTest2 = this._onClickGoTest2.bind(this);
     }
 
@@ -27,6 +29,14 @@ export default class TestCpn extends BaseCpn {
         this.props.TestStore.getJsonAsync();
     }
 
+    _onClickGetJsonSyncCustomized() {
+        this.props.TestStore.getJsonSyncCustomized();
+    }
+
+    _onClickGetJsonAsyncCustomized() {
+        this.props.TestStore.getJsonAsyncCustomized();
+    }
+
     _onClickGoTest2() {
         this.navPush('/second', {name: 'zhang'});
     }
@@ -41,6 +51,8 @@ export default class TestCpn extends BaseCpn {
                 <button onClick={this._onClickDoSomething}>do something</button>
                 <button onClick={this._onClickGetJsonSync}>get json sync</button>
                 <button onClick={this._onClickGetJsonAsync}>get json async</button>
+                <button onClick={this._onClickGetJsonSyncCustomized}>get json sync customized</button>
+                <button onClick={this._onClickGetJsonAsyncCustomized}>get json async customized</button>
                 <button onClick={this._onClickGoTest2}>go Test2</button>
             </div>
         );

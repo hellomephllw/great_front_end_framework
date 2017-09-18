@@ -11,14 +11,25 @@ class TestStore {
     }
 
     @action async getJsonSync() {
-        console.log(api);
-        const json = await api.getProfile();
+        const json = await api.getProfile({name: 'zhangsan', age: 18});
         console.log(json);
     }
 
-    @action async getJsonAsync() {
-        api.getProfile({}, function() {
+    @action getJsonAsync() {
+        api.getProfile({name: '123', age: 18}, function(json) {
             console.log('after fetch============');
+            console.log(json);
+        });
+    }
+
+    @action async getJsonSyncCustomized() {
+        const json = await api.getJson(api.constants._GET_WALLET, {});
+        console.log(json);
+    }
+
+    @action getJsonAsyncCustomized() {
+        api.getJson(api.constants._GET_WALLET, {}, function(json) {
+            console.log(json);
         });
     }
 

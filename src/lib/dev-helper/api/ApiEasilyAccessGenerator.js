@@ -34,7 +34,7 @@ const ApiEasilyAccessGenerator = {
                 url = pair.val;
 
             content += `\t${functionName}(formData, opts, callback) {\n`;
-            content += `\t\treturn apiEasilyAccess.getJson(\'${url}\', opts, callback);\n`;
+            content += `\t\treturn apiEasilyAccess.getJson(\'${url}\', formData, opts, callback);\n`;
             content += index === keyValuePairs.length - 1 ? '\t}\n' : '\t},\n';
         });
 
