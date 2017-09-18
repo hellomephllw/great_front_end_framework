@@ -9,7 +9,7 @@ export default class BaseCpn extends Component {
     /**
      *  Pushes a new entry onto the history stack
      */
-    navPush(path, props) {
+    navPush(path, props, opts) {
         this.props.history.push(path, props);
     }
 

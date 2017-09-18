@@ -4,7 +4,7 @@ import { Navigation } from 'react-native-navigation';
 export default routesAdaptee = screensParams =>
     (store: {}, Provider: {}) => {
         //注册
-        for (let key in screensParams) {
-            Navigation.registerComponent(key, () => screensParams[key], store, Provider);
+        for (let id in screensParams) {
+            Navigation.registerComponent(id, () => screensParams[id], store, Provider);
         }
     };

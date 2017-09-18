@@ -5,7 +5,7 @@ import categoryIcon from '../../../images/index-tab/tab-category-icon.png';
 //所有tab screen
 export default tabScreens = [
     {
-        screenKey: screenConst._TEST_SCREEN,
+        screenId: screenConst._TEST_SCREEN,
         screenTitle: 'Test',
         tabLabel: 'test',
         // labelColor: '',
@@ -13,7 +13,7 @@ export default tabScreens = [
         tabIcon: homeIcon
     },
     {
-        screenKey: screenConst._TEST2_SCREEN,
+        screenId: screenConst._TEST2_SCREEN,
         screenTitle: 'Test2',
         tabLabel: 'test2',
         // labelColor: '',
@@ -21,7 +21,7 @@ export default tabScreens = [
         tabIcon: categoryIcon
     },
     // {
-    //     screenKey: screenConst._TEST3_SCREEN,
+    //     screenId: screenConst._TEST3_SCREEN,
     //     screenTitle: 'Test3',
     //     tabLabel: 'test3',
     //     // labelColor: '',

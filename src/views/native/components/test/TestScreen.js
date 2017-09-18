@@ -51,7 +51,7 @@ export default class TestScreen extends BaseCpn {
     }
 
     _onPressGoScreen4Btn() {
-        this.navPush(this.navScreenKeys._TEST4_SCREEN);
+        this.navPush(this.navScreenIds._TEST4_SCREEN);
     }
 
     render() {

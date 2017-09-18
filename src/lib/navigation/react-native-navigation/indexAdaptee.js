@@ -15,7 +15,7 @@ export default indexAdaptee = {
         const tabs = [];
         tabScreensConfig.forEach(ele => tabs.push({
             label: ele.tabLabel,
-            screen: ele.screenKey,
+            screen: ele.screenId,
             icon: ele.tabIcon,
             title: ele.screenTitle
         }));
