@@ -54,6 +54,12 @@ export default class TestScreen extends BaseCpn {
         this.navPush(this.navScreenIds._TEST4_SCREEN);
     }
 
+    navBarBtnsEventHandler(params) {
+        if (params.id === 'xxx') {
+            console.log('点击左上角按钮');
+        }
+    }
+
     render() {
         const { TestStore } = this.props;
 

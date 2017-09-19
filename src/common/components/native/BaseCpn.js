@@ -45,4 +45,13 @@ export default class BaseCpn extends RnnCpn {
         super.reset(screenId, props, opts);
     }
 
+    /**
+     * 导航按钮事件控制器
+     * @param params navigation传递过来的参数，一定带有id，即params.id
+     */
+    navBarBtnsEventHandler(params) {
+        //wait for override
+        super.navBarBtnsEventHandler();
+    }
+
 }

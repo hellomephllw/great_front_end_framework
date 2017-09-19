@@ -1,6 +1,7 @@
 import { screenConst } from './registerScreens';
 import homeIcon from '../../../images/index-tab/tab-home-icon.png';
 import categoryIcon from '../../../images/index-tab/tab-category-icon.png';
+import navLeftBtnIcon from '../../../images/index/nav-left-btn-icon.png';
 
 //所有tab screen
 export default tabScreens = [
@@ -13,10 +14,11 @@ export default tabScreens = [
         tabIcon: homeIcon,
         leftButtons: [
             {
-                id: 'back',
-                label: 'xxx',
-                // icon: '',
+                id: 'xxx',
+                // label: 'xxx',
+                icon: navLeftBtnIcon,
                 disabled: false,
+                // disableIconTint: true,
                 // fontSize: '',
                 // fontWeight: ''
             }

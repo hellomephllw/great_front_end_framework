@@ -92,17 +92,29 @@ export default class RnnCpn extends Component {
     onNavigatorEvent(event) { // this is the onPress handler for the two buttons together
         if (event.type === 'NavBarButtonPress') { // this is the event type for button presses
             //返回按钮
-            if (event.id === 'back') { // this is the same id field from the static navigatorButtons definition
+            if (event.id === rnnConstants._NAV_BACK_ID) { // this is the same id field from the static navigatorButtons definition
                 //推向上一页
                 this.props.navigator.pop();
+                //如果是从首页进入，则show tabs
                 if (this.props._IS_FROM_TAB_SCREEN === rnnConstants._IS_FROM_TAB_SCREEN) {
-                    this.props.navigator.toggleTabs({//如果是从首页进入，则show tabs
+                    this.props.navigator.toggleTabs({
                         to: 'show', // required, 'hidden' = hide tab bar, 'shown' = show tab bar
                         animated: true // does the toggle have transition animation or does it happen immediately (optional)
                     });
                 }
+            } else {
+                let params = {id: event.id};
+                this.navBarBtnsEventHandler(params);
             }
         }
+    }
+
+    /**
+     * 导航按钮事件控制器
+     * @param params params navigation传递过来的参数，一定带有id，即params.id
+     */
+    navBarBtnsEventHandler(params) {
+        //wait for override
     }
 
 }

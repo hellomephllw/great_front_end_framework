@@ -16,6 +16,9 @@ export default indexAdaptor = {
         //执行注册所有screens
         routesAdaptor.initScreens(stores, RnnProvider);
 
+        //为所有屏幕，添加navigation所需要的静态变量
+        indexAdaptee.addStaticVariousForNavigation(tabScreensConfig, generalScreensConfig, drawerScreensConfig);
+
         //启动app
         indexAdaptee.startUp(tabScreensConfig, generalScreensConfig, drawerScreensConfig);
     }
