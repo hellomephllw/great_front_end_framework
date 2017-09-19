@@ -10,14 +10,23 @@ export default tabScreens = [
         tabLabel: 'test',
         // labelColor: '',
         // labelFontSize: '',
-        tabIcon: homeIcon
+        tabIcon: homeIcon,
+        leftButtons: [
+            {
+                id: 'back',
+                label: 'xxx',
+                // icon: '',
+                disabled: false,
+                // fontSize: '',
+                // fontWeight: ''
+            }
+        ],
+        rightButtons: []
     },
     {
         screenId: screenConst._TEST2_SCREEN,
         screenTitle: 'Test2',
         tabLabel: 'test2',
-        // labelColor: '',
-        // labelFontSize: '',
         tabIcon: categoryIcon
     },
     // {

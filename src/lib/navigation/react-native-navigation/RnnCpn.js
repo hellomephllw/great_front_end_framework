@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { Navigation } from 'react-native-navigation';
 import configureScreensHandler from '../configureScreensHandler';
+import rnnConstants from './rnnConstants';
 
 export default class RnnCpn extends Component {
 
     constructor(props) {
         super(props);
+        //
+        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
     }
 
     /**
@@ -47,10 +49,21 @@ export default class RnnCpn extends Component {
         if (!screenTitle || screenTitle === '' || typeof screenTitle !== 'string')
             throw new Error('该screen的title参数配置有误！');
 
+        //判断是否是tab screen
+        let isTabScreen = configureScreensHandler.getTabScreensConfig().some(config => config.screenId === screenId);
+        //如果推向首页，则show tabs，否则hide tabs
         this.props.navigator.toggleTabs({
-            to: 'hidden', // required, 'hidden' = hide tab bar, 'shown' = show tab bar
+            to: isTabScreen ? 'show' : 'hidden', // required, 'hidden' = hide tab bar, 'shown' = show tab bar
             animated: true // does the toggle have transition animation or does it happen immediately (optional)
         });
+
+        if (isTabScreen) {//如果推向的是tab screen
+            props._IS_TAB_SCREEN = rnnConstants._IS_TAB_SCREEN;
+        }
+        if (this.props._IS_TAB_SCREEN && this.props._IS_TAB_SCREEN === rnnConstants._IS_TAB_SCREEN) {//如果当前是tab screen
+            props._IS_FROM_TAB_SCREEN = rnnConstants._IS_FROM_TAB_SCREEN;
+        }
+        //推到目标screen
         this.props.navigator.push({
             screen: screenId,
             title: configureScreensHandler.getConfigByScreenId(screenId).screenTitle,
@@ -86,5 +99,19 @@ export default class RnnCpn extends Component {
         });
     }
 
+    onNavigatorEvent(event) { // this is the onPress handler for the two buttons together
+        if (event.type === 'NavBarButtonPress') { // this is the event type for button presses
+            if (event.id === 'back') { // this is the same id field from the static navigatorButtons definition
+                //推向上一页
+                this.props.navigator.pop();
+                if (this.props._IS_FROM_TAB_SCREEN === rnnConstants._IS_FROM_TAB_SCREEN) {
+                    this.props.navigator.toggleTabs({//如果是从首页进入，则show tabs
+                        to: 'show', // required, 'hidden' = hide tab bar, 'shown' = show tab bar
+                        animated: true // does the toggle have transition animation or does it happen immediately (optional)
+                    });
+                }
+            }
+        }
+    }
 
 }

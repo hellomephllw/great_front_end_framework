@@ -1,5 +1,5 @@
 import { Navigation } from 'react-native-navigation';
-import { Platform } from 'react-native';
+import rnnConstants from './rnnConstants';
 
 export default indexAdaptee = {
     /**启动app*/
@@ -7,7 +7,10 @@ export default indexAdaptee = {
         Navigation.startTabBasedApp({
             tabs: this._buildTabs(tabScreensConfig),
             tabsStyle: this._buildIosStyle(),
-            appStyle: this._buildAndroidStyle()
+            appStyle: this._buildAndroidStyle(),
+            passProps: {
+                _IS_TAB_SCREEN: rnnConstants._IS_TAB_SCREEN
+            }
         });
     },
     /**构建tabs*/

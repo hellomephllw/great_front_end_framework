@@ -51,11 +51,14 @@ export default class TestScreen extends BaseCpn {
     }
 
     _onPressGoScreen4Btn() {
+        console.log(this.props.navigator);
         this.navPush(this.navScreenIds._TEST4_SCREEN);
     }
 
     render() {
         const { TestStore } = this.props;
+
+        console.log(this.props);
 
         return (
             <View>
