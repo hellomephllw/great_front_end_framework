@@ -16,16 +16,6 @@ import BaseCpn from '../../../../common/components/native/BaseCpn';
 @observer
 export default class TestScreen extends BaseCpn {
 
-    // static navigatorButtons = {
-    //     leftButtons: [
-    //         {
-    //             id: 'back',
-    //             icon: require('../../../../images/common/black-back-icon.png')
-    //         }
-    //     ],
-    //     rightButtons: []
-    // };
-
     constructor(props) {
         super(props);
         this._onPressPop = this._onPressPop.bind(this);

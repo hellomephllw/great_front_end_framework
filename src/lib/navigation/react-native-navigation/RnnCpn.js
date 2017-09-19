@@ -6,7 +6,7 @@ export default class RnnCpn extends Component {
 
     constructor(props) {
         super(props);
-        //
+        //为导航上的按钮监听器绑定this
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
     }
 
@@ -99,8 +99,13 @@ export default class RnnCpn extends Component {
         });
     }
 
+    /**
+     * 导航上的按钮监听器
+     * @param event 触发事件
+     */
     onNavigatorEvent(event) { // this is the onPress handler for the two buttons together
         if (event.type === 'NavBarButtonPress') { // this is the event type for button presses
+            //返回按钮
             if (event.id === 'back') { // this is the same id field from the static navigatorButtons definition
                 //推向上一页
                 this.props.navigator.pop();
