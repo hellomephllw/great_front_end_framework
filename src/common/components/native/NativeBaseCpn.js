@@ -54,4 +54,12 @@ export default class BaseCpn extends RnnCpn {
         super.navBarBtnsEventHandler();
     }
 
+    /**
+     * 获取从上个页面传来的参数
+     * @return json参数
+     */
+    getPassProps() {
+       return this.getNavPassedProps();
+    }
+
 }

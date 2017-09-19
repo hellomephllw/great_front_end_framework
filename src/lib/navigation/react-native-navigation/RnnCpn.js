@@ -17,6 +17,7 @@ export default class RnnCpn extends Component {
      * @param opts 其他选项(json对象)
      */
     push(screenId = '', props = {}, opts = {}) {
+        let _this = this;
         //screenId验证
         if (typeof screenId !== 'string') throw new Error('screenId必须是字符串！');
         if (screenId === '') throw new Error('screenId不能是空字符串！');
@@ -53,7 +54,7 @@ export default class RnnCpn extends Component {
         this.props.navigator.push({
             screen: screenId,
             title: configureScreensHandler.getConfigByScreenId(screenId).screenTitle,
-            passProps: props
+            passProps: _this._dealPassedProps(props)
         });
     }
 
@@ -78,10 +79,11 @@ export default class RnnCpn extends Component {
      * @param opts 其他选项(json对象)
      */
     reset(screenId, props, opts) {
+        let _this = this;
         this.props.navigator.resetTo({
             screen: screenId,
             title: configureScreensHandler.getConfigByScreenId(screenId).screenTitle,
-            passProps: props
+            passProps: _this._dealPassedProps(props)
         });
     }
 
@@ -115,6 +117,19 @@ export default class RnnCpn extends Component {
      */
     navBarBtnsEventHandler(params) {
         //wait for override
+    }
+
+    /**
+     * 获取从上个页面传递过来的json参数
+     * @return json参数
+     */
+    getNavPassedProps() {
+        return this.props.navPassedProps;
+    }
+
+    /**处理传递参数*/
+    _dealPassedProps(props) {
+        return {navPassedProps: props};
     }
 
 }

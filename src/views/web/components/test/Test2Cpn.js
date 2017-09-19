@@ -1,18 +1,23 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import BaseCpn from '../../../../common/components/web/BaseCpn';
+import WebBaseCpn from '../../../../common/components/web/WebBaseCpn';
 
 @inject('TestStore')
 @observer
-export default class Test2Cpn extends BaseCpn {
+export default class Test2Cpn extends WebBaseCpn {
 
     constructor(props) {
         super(props);
-        this._onClickIncrease = this._onClickIncrease.bind(this);
+        this._onClickGoTest1 = this._onClickGoTest1.bind(this);
+        this._onClickGoBack = this._onClickGoBack.bind(this);
     }
 
-    _onClickIncrease() {
-        this.props.TestPersist.increase();
+    _onClickGoTest1() {
+        this.navPush('/first', {name: 'zhangsan', age: 18});
+    }
+
+    _onClickGoBack() {
+        this.navPop();
     }
 
     render() {
@@ -21,7 +26,8 @@ export default class Test2Cpn extends BaseCpn {
         return (
             <div>
                 <p>Test2Cpn</p>
-                <button onClick={this._onClickIncrease}>click to increase</button>
+                <button onClick={this._onClickGoTest1}>go test1</button>
+                <button onClick={this._onClickGoBack}>go back</button>
             </div>
         );
     }

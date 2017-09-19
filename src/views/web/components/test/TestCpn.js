@@ -1,10 +1,10 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import BaseCpn from '../../../../common/components/web/BaseCpn';
+import WebBaseCpn from '../../../../common/components/web/WebBaseCpn';
 
 @inject('TestStore')
 @observer
-export default class TestCpn extends BaseCpn {
+export default class TestCpn extends WebBaseCpn {
 
     constructor(props) {
         super(props);
@@ -43,17 +43,19 @@ export default class TestCpn extends BaseCpn {
 
     render() {
         const { name, age } = this.props.TestStore;
+        console.log(this.props);
+        console.log(this.getPassProps());
         return (
             <div>
                 <p>TestCpn</p>
                 <p>name:{ name }</p>
                 <p>age:{ age }</p>
-                <button onClick={this._onClickDoSomething}>do something</button>
-                <button onClick={this._onClickGetJsonSync}>get json sync</button>
-                <button onClick={this._onClickGetJsonAsync}>get json async</button>
-                <button onClick={this._onClickGetJsonSyncCustomized}>get json sync customized</button>
-                <button onClick={this._onClickGetJsonAsyncCustomized}>get json async customized</button>
-                <button onClick={this._onClickGoTest2}>go Test2</button>
+                <button onClick={this._onClickDoSomething}>do something</button><br/>
+                <button onClick={this._onClickGetJsonSync}>get json sync</button><br/>
+                <button onClick={this._onClickGetJsonAsync}>get json async</button><br/>
+                <button onClick={this._onClickGetJsonSyncCustomized}>get json sync customized</button><br/>
+                <button onClick={this._onClickGetJsonAsyncCustomized}>get json async customized</button><br/>
+                <button onClick={this._onClickGoTest2}>go Test2</button><br/>
             </div>
         );
     }

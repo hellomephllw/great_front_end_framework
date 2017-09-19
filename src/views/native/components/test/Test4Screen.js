@@ -7,14 +7,15 @@ import {
     TextInput,
     PixelRatio,
     TouchableOpacity,
+    ScrollView,
     Dimensions,
     View
 } from 'react-native';
-import BaseCpn from '../../../../common/components/native/BaseCpn';
+import NativeBaseCpn from '../../../../common/components/native/NativeBaseCpn';
 
 @inject('TestStore')
 @observer
-export default class TestScreen extends BaseCpn {
+export default class TestScreen extends NativeBaseCpn {
 
     constructor(props) {
         super(props);
@@ -28,12 +29,81 @@ export default class TestScreen extends BaseCpn {
     render() {
         const { height } = Dimensions.get('window');
 
+        console.log(this.getPassProps());
+
         return (
             <View style={{backgroundColor: 'red', height}}>
+                <ScrollView style={{height, marginBottom: 65}}>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
+                <Text>Screen444444</Text>
                 <Text>Screen444444</Text>
                 <TouchableOpacity onPress={this._onPressPop}>
                     <Text>pop</Text>
                 </TouchableOpacity>
+                </ScrollView>
             </View>
         );
     }

@@ -9,11 +9,11 @@ import {
     TouchableOpacity,
     View
 } from 'react-native';
-import BaseCpn from '../../../../common/components/native/BaseCpn';
+import NativeBaseCpn from '../../../../common/components/native/NativeBaseCpn';
 
 @inject('TestStore')
 @observer
-export default class TestScreen extends BaseCpn {
+export default class TestScreen extends NativeBaseCpn {
 
     constructor(props) {
         super(props);
@@ -51,7 +51,7 @@ export default class TestScreen extends BaseCpn {
     }
 
     _onPressGoScreen4Btn() {
-        this.navPush(this.navScreenIds._TEST4_SCREEN);
+        this.navPush(this.navScreenIds._TEST4_SCREEN, {name: 'zhangsan'});
     }
 
     navBarBtnsEventHandler(params) {
