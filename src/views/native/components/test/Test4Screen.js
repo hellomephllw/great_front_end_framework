@@ -19,15 +19,10 @@ export default class TestScreen extends BaseCpn {
     constructor(props) {
         super(props);
         this._onPressPop = this._onPressPop.bind(this);
-        this._onPressPushToTest1 = this._onPressPushToTest1.bind(this);
     }
 
     _onPressPop() {
         this.navPop();
-    }
-
-    _onPressPushToTest1() {
-        this.navPush(this.navScreenIds._TEST_SCREEN);
     }
 
     render() {
@@ -38,9 +33,6 @@ export default class TestScreen extends BaseCpn {
                 <Text>Screen444444</Text>
                 <TouchableOpacity onPress={this._onPressPop}>
                     <Text>pop</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={this._onPressPushToTest1}>
-                    <Text>push to screen Test1</Text>
                 </TouchableOpacity>
             </View>
         );
