@@ -16,30 +16,14 @@ export default class RnnCpn extends Component {
      * @param props 传递参数(json对象)
      * @param opts 其他选项(json对象)
      */
-    push(screenId = '', props = {propsIsDefault: true}, opts = {optsIsDefault: true}) {
-        //navId处理
-        if (screenId && typeof screenId === 'string' && screenId !== '') {
-
-        } else {
-            throw new Error('screenId必须是字符串！');
-        }
-
-        //props处理
-        if (props && props.propsIsDefault) {
-
-        } else if (props && props instanceof Object) {
-
-        } else {
-
-        }
-        //opts处理
-        if (opts && opts.propsIsDefault) {
-
-        } else if (opts && opts instanceof Object) {
-
-        } else {
-
-        }
+    push(screenId = '', props = {}, opts = {}) {
+        //screenId验证
+        if (typeof screenId !== 'string') throw new Error('screenId必须是字符串！');
+        if (screenId === '') throw new Error('screenId不能是空字符串！');
+        //props验证
+        if (!props instanceof Object) throw new Error('props必须是json对象！');
+        //opts验证
+        if (!opts instanceof Object) throw new Error('opts必须是json对象！');
 
         //参数验证
         const screenConfig = configureScreensHandler.getConfigByScreenId(screenId);
@@ -57,10 +41,12 @@ export default class RnnCpn extends Component {
             animated: true // does the toggle have transition animation or does it happen immediately (optional)
         });
 
-        if (isTabScreen) {//如果推向的是tab screen
+        //如果推向的是tab screen
+        if (isTabScreen) {
             props._IS_TAB_SCREEN = rnnConstants._IS_TAB_SCREEN;
         }
-        if (this.props._IS_TAB_SCREEN && this.props._IS_TAB_SCREEN === rnnConstants._IS_TAB_SCREEN) {//如果当前是tab screen
+        //如果当前是tab screen
+        if (this.props._IS_TAB_SCREEN && this.props._IS_TAB_SCREEN === rnnConstants._IS_TAB_SCREEN) {
             props._IS_FROM_TAB_SCREEN = rnnConstants._IS_FROM_TAB_SCREEN;
         }
         //推到目标screen
