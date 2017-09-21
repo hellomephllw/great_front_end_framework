@@ -51,7 +51,7 @@ export default class TestScreen extends NativeBaseCpn {
     }
 
     _onPressGoScreen4Btn() {
-        this.navPush(this.navScreenIds._TEST4_SCREEN, {name: 'zhangsan'});
+        this.navPush(this.navScreenIds._SCREEN_TEST_4, {name: 'zhangsan'});
     }
 
     navBarBtnsEventHandler(params) {

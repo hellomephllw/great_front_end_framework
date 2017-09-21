@@ -4,7 +4,7 @@ import WebBaseCpn from '../../../../common/components/web/WebBaseCpn';
 
 @inject('TestStore')
 @observer
-export default class Test2Cpn extends WebBaseCpn {
+export default class Test2Screen extends WebBaseCpn {
 
     constructor(props) {
         super(props);
@@ -21,8 +21,6 @@ export default class Test2Cpn extends WebBaseCpn {
     }
 
     render() {
-        console.log(this.props);
-        console.log(this.getNavPassedProps());
         return (
             <div>
                 <p>Test2Cpn</p>

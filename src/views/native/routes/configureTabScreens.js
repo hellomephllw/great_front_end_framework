@@ -6,7 +6,7 @@ import navLeftBtnIcon from '../../../images/index/nav-left-btn-icon.png';
 //所有tab screen
 export default tabScreens = [
     {
-        screenId: screenConst._TEST_SCREEN,
+        screenId: screenConst._SCREEN_TEST_1,
         screenTitle: 'Test',
         tabLabel: 'test',
         // labelColor: '',
@@ -26,7 +26,7 @@ export default tabScreens = [
         rightButtons: []
     },
     {
-        screenId: screenConst._TEST2_SCREEN,
+        screenId: screenConst._SCREEN_TEST_2,
         screenTitle: 'Test2',
         tabLabel: 'test2',
         tabIcon: categoryIcon

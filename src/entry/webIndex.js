@@ -11,8 +11,13 @@ import {
     Switch,
     Redirect
 } from 'react-router-dom';
-import TestCpn from '../views/web/components/test/TestCpn';
-import Test2Cpn from '../views/web/components/test/Test2Cpn';
+import ScrollToTopCpn from '../common/components/web/ScrollToTopCpn';
+import RouteAuthInterceptorCpn from '../common/components/web/RouteAuthInterceptorCpn';
+import tabScreens from '../views/web/routes/configureTabScreens';
+import generalScreens from '../views/web/routes/configureGeneralScreens';
+
+import TestCpn from '../views/web/components/test/TestScreen';
+import Test2Cpn from '../views/web/components/test/Test2Screen';
 import stores from '../data/stores';
 
 class App extends Component {
@@ -21,14 +26,11 @@ class App extends Component {
         return (
             <div>
                 <ul>
-                    <li><Link to="/first?name=123">first</Link></li>
-                    <li><Link to="/second">second</Link></li>
+                    <li><Link to="/index/test1">first</Link></li>
+                    <li><Link to="/index/test2">second</Link></li>
                 </ul>
 
-                <Switch>
-                    <Route path="/first" exact component={TestCpn}/>
-                    <Route path="/second" component={Test2Cpn}/>
-                </Switch>
+                <RouteAuthInterceptorCpn generalScreens={ generalScreens } tabScreens={ tabScreens }/>
             </div>
         );
     }
@@ -38,7 +40,9 @@ class App extends Component {
 render(
     <Provider {...stores}>
         <Router>
-            <App/>
+            <ScrollToTopCpn>
+                <App/>
+            </ScrollToTopCpn>
         </Router>
     </Provider>,
     document.getElementById('app')

@@ -40,7 +40,7 @@ export default class BaseCpn extends Component {
      *
      */
     getPassProps() {
-        return this.props.location.state;
+        return this.props.location && this.props.location.state ? this.props.location.state : {};
     }
 
 }

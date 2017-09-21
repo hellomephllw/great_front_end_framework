@@ -4,7 +4,7 @@ import WebBaseCpn from '../../../../common/components/web/WebBaseCpn';
 
 @inject('TestStore')
 @observer
-export default class TestCpn extends WebBaseCpn {
+export default class TestScreen extends WebBaseCpn {
 
     constructor(props) {
         super(props);
