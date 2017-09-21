@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import RouteParserCpn from '../../../../common/components/web/RouteParserCpn';
 
 export default class IndexLayout extends RouteParserCpn {
@@ -9,9 +9,7 @@ export default class IndexLayout extends RouteParserCpn {
     }
 
     render() {
-        const subScreens = this.generateRoutes(this.props.screens);
-
-        subScreens.push(<Redirect key={Math.random()} to="/not-found/404" />);
+        const subScreens = this.getLayoutSubRoutes();
 
         return (
             <div>

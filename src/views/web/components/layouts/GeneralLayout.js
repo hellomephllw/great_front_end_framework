@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import RouteParserCpn from '../../../../common/components/web/RouteParserCpn';
 
 export default class GeneralLayout extends RouteParserCpn {
