@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
     Switch,
     Route,
@@ -17,8 +17,8 @@ export default class RouteAuthInterceptorCpn extends RouteParserCpn {
 
     render() {
         const
-            tabRoutes = this._generateRoutes(this.props.tabScreens),
-            generalRoute = this._generateRoutes(this.props.generalScreens);
+            tabRoutes = this.generateRoutes(this.props.tabScreens),
+            generalRoute = this.generateRoutes(this.props.generalScreens);
 
         return (
             <Switch>

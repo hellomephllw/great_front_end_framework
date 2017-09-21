@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 export default class RouteParserCpn extends Component {
 
@@ -7,7 +7,7 @@ export default class RouteParserCpn extends Component {
         super(props);
     }
 
-    _generateRoutes(screens) {
+    generateRoutes(screens) {
         return screens.map(screen => this._generateSingleRoute(screen));
     }
 
@@ -18,6 +18,13 @@ export default class RouteParserCpn extends Component {
                    path={screen.screenId}
                    render={props => (<screen.screen screens={screen.subScreens} {...props} />)} />
         );
+    }
+
+    getLayoutSubRoutes() {
+        const subScreens = this.generateRoutes(this.props.screens);
+        subScreens.push(<Redirect key={Math.random()} to="/not-found/404" />);
+
+        return subScreens;
     }
 
 }
