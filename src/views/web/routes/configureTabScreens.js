@@ -5,7 +5,7 @@ export default tabScreens = [
         screenId: screenConst._INDEX_LAYOUT,
         screen: screens[screenConst._INDEX_LAYOUT],
         screenTitle: 'index-layout',
-        isExact: true,
+        isExact: false,//默认为true
         subScreens: [
             {
                 screenId: screenConst._SCREEN_TEST_1,
@@ -15,7 +15,7 @@ export default tabScreens = [
             {
                 screenId: screenConst._SCREEN_TEST_2,
                 screen: screens[screenConst._SCREEN_TEST_2],
-                screenTitle: 'Test1'
+                screenTitle: 'Test2'
             }
         ]
     }

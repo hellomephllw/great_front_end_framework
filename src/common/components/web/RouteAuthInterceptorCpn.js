@@ -4,40 +4,30 @@ import {
     Route,
     Redirect
 } from 'react-router-dom';
+import RouteParserCpn from '../../../common/components/web/RouteParserCpn';
 
-export default class RouteAuthInterceptorCpn extends Component {
+export default class RouteAuthInterceptorCpn extends RouteParserCpn {
 
     constructor(props) {
         super(props);
-        this._generateRoutes = this._generateRoutes.bind(this);
     }
 
     //是否需要登录
     //是否需要获取openid
 
     render() {
-        const Routes = this._generateRoutes();
-
-        console.log(this._generateRoutes());
+        const
+            tabRoutes = this._generateRoutes(this.props.tabScreens),
+            generalRoute = this._generateRoutes(this.props.generalScreens);
 
         return (
             <Switch>
-                { Routes }
-                <Route path="/" render={() => <div>/</div>} />
-                <Route render={() => (<div>404</div>)}/>
+                <Route exact path="/" render={() => <div>index page!!</div>} />
+                <Route exact path="/not-found/404" render={() => <div>404</div>}/>
+                {tabRoutes}
+                {generalRoute}
+                <Route render={() => <div>404</div>}/>
             </Switch>
-        );
-    }
-
-    _generateRoutes() {
-        console.log('=======');
-        console.log(this.props.tabScreens);
-        return this.props.tabScreens.map(tabScreen => this._generateSingleRoute(tabScreen));
-    }
-
-    _generateSingleRoute(tabScreen) {
-        return (
-            <Route key={Math.random()} path={tabScreen.screenId} render={props => (<tabScreen.screen { ...props } screens={tabScreen.subScreens} />)} />
         );
     }
 

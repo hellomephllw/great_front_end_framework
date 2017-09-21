@@ -13,7 +13,10 @@ export default class RouteParserCpn extends Component {
 
     _generateSingleRoute(screen) {
         return (
-            <Route exact key={Math.random()} path={screen.screenId} render={props => (<screen.screen screens={screen.subScreens} { ...props } />)} />
+            <Route exact={screen.isExact === undefined ? true : screen.isExact}
+                   key={Math.random()}
+                   path={screen.screenId}
+                   render={props => (<screen.screen screens={screen.subScreens} {...props} />)} />
         );
     }
 

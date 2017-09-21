@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Redirect, Switch } from 'react-router-dom';
 import RouteParserCpn from '../../../../common/components/web/RouteParserCpn';
 
 export default class IndexLayout extends RouteParserCpn {
@@ -9,28 +9,18 @@ export default class IndexLayout extends RouteParserCpn {
     }
 
     render() {
-        console.log('----------');
-        console.log(this._generateRoutes(this.props.screens));
+        const subScreens = this._generateRoutes(this.props.screens);
+
+        subScreens.push(<Redirect key={Math.random()} to="/not-found/404" />);
+
         return (
             <div>
                 index
                 <p>如下是子页面</p>
                 <hr/>
-                {this._generateRoutes(this.props.screens)}
+                <Switch>{subScreens}</Switch>
             </div>
         );
     }
-
-    // _generateRoutes() {
-    //     let routes = this.props.screens.map(tabScreen => this._generateSingleRoute(tabScreen));
-    //     routes.push(<Route key={Math.random()} render={() => <div>404</div>} />);
-    //     return routes;
-    // }
-    //
-    // _generateSingleRoute(tabScreen) {
-    //     return (
-    //         <Route exact key={Math.random()} path={tabScreen.screenId} render={props => (<tabScreen.screen { ...props } screens={tabScreen.subScreens} />)} />
-    //     );
-    // }
 
 }
