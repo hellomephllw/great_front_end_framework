@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router-dom';
+import RouteParser from './lib/RouteParser';
+import AuthValidator from './lib/AuthValidator';
 
 /**
- * 为Layout和RouteAuthInterceptor提供抽象方法
+ * 为Layout和RouteAuthInterceptor提供方法
  */
-export default class RouteParserCpn extends Component {
+export default class RouteParserAndAuthValidatorCpn extends Component {
 
     constructor(props) {
         super(props);
+        this.routeParser = new RouteParser();
+        this.authValidator = new AuthValidator();
     }
 
     /**
@@ -23,7 +27,7 @@ export default class RouteParserCpn extends Component {
             <Route exact={screen.isExact === undefined ? true : screen.isExact}
                    key={Math.random()}
                    path={screen.screenId}
-                   render={props => (<screen.screen screens={screen.subScreens} {...props} />)} />
+                   render={props => this.authValidator.authorityHandler(<screen.screen screens={screen.subScreens} {...props}/>, screen)} />
         );
     }
 

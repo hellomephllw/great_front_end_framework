@@ -1,4 +1,5 @@
 import { screenConst, screens } from './registerScreens';
+import authConst from './routeAuthConst';
 
 export default generalScreens = [
     {
@@ -10,7 +11,13 @@ export default generalScreens = [
             {
                 screenId: screenConst._SCREEN_TEST_5,
                 screen: screens[screenConst._SCREEN_TEST_5],
-                screenTitle: 'Test5'
+                screenTitle: 'Test5',
+                auth: [authConst._VALIDATE_LOGIN]
+            },
+            {
+                screenId: screenConst._SCREEN_LOGIN,
+                screen: screens[screenConst._SCREEN_LOGIN],
+                screenTitle: 'Login'
             }
         ]
     }

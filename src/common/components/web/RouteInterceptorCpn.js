@@ -4,12 +4,12 @@ import {
     Route,
     Redirect
 } from 'react-router-dom';
-import RouteParserCpn from '../../../common/components/web/RouteParserCpn';
+import RouteParserAndAuthValidatorCpn from './RouteParserAndAuthValidatorCpn';
 
 /**
  * 权限拦截器以及基础路由配置
  */
-export default class RouteAuthInterceptorCpn extends RouteParserCpn {
+export default class RouteInterceptorCpn extends RouteParserAndAuthValidatorCpn {
 
     constructor(props) {
         super(props);

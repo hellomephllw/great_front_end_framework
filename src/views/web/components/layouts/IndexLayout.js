@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
-import RouteParserCpn from '../../../../common/components/web/RouteParserCpn';
+import RouteParserCpn from '../../../../common/components/web/RouteParserAndAuthValidatorCpn';
 
 export default class IndexLayout extends RouteParserCpn {
 
